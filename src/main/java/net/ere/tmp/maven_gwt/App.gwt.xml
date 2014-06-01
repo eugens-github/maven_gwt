@@ -5,8 +5,13 @@
 <module rename-to='App'>
 
 	<inherits name='com.google.gwt.user.User' />
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name="com.google.gwt.logging.Logging" />
+	<set-property name="gwt.logging.popupHandler" value="DISABLED" />
+
 	<entry-point class='net.ere.tmp.maven_gwt.client.App' />
-	
+
 	<source path='client' />
+	<source path='shared' />
 
 </module>

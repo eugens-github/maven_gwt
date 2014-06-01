@@ -1,0 +1,2 @@
+serviceClass: net.ere.tmp.maven_gwt.shared.AppService
+path: C06B5BDF37A995DADB5451B851BA9F2E.gwt.rpc
