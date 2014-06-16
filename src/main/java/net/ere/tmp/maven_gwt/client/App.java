@@ -24,7 +24,7 @@ public class App implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		final Button button = new Button("Get Time");
+		final Button button = new Button("Get-Time");
 		final Label labelLocalTime = new Label();
 		final Label labelServerTime = new Label();
 		labelLocalTime.setStyleName("myLabel");
@@ -37,7 +37,7 @@ public class App implements EntryPoint {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				log.info("Click ...");
+				log.info("Click");
 
 				Date date = new Date();
 				labelLocalTime.setText("Localtime:  " + format(date));

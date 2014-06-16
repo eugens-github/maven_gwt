@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="maven_gwt:war NO GWT">
+    <output-path>$PROJECT_DIR$/target/maven_gwt.war</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="maven_gwt" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.google.gwt:gwt-servlet:2.6.1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="maven_gwt/web/Web" />
+    </root>
+  </artifact>
+</component>
