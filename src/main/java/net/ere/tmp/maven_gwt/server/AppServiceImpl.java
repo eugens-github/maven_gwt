@@ -6,7 +6,9 @@ import java.util.logging.Logger;
 import net.ere.tmp.maven_gwt.shared.AppService;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import net.ere.tmp.maven_gwt.spring.DataService;
 import net.ere.tmp.maven_gwt.spring.TimeService;
+import net.ere.tmp.maven_gwt.spring.model.Author;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -31,6 +33,11 @@ public class AppServiceImpl extends RemoteServiceServlet implements AppService {
         TimeService timeService = getBean(TimeService.class);
 
         Date time = timeService.getTime();
+
+        DataService dataService = getBean(DataService.class);
+        Author author = new Author("Bob");
+
+        dataService.persistAuthor(author);
 
         log.info("Call getTime(): " + timeService.getTimeAsString());
         return time;
