@@ -10,7 +10,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Named("dataService")
 @Transactional
@@ -31,5 +33,10 @@ public class DataServiceImpl implements DataService {
     public void persistAuthor(Author author) {
         author.setCreatedAt(timeService.getTime());
         entityManager.persist(author);
+    }
+
+    @Override
+    public List<Author> getAllAuthors() {
+        return entityManager.createQuery("select a from Author a", Author.class).getResultList();
     }
 }

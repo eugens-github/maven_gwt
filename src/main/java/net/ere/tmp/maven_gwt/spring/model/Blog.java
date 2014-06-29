@@ -15,15 +15,30 @@ public class Blog {
 
     private String title;
 
+    private String content;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
     @ManyToOne(optional = false)
-    // @JoinColumn(name = "FK_AUTHOR", referencedColumnName = "ID",  nullable = false)
+    @JoinColumn(name = "FK_AUTHOR", nullable = false)
     private Author author;
 
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
     private List<Comment> comments;
+
+    public Blog() {
+    }
+
+    public Blog(String title, String text) {
+        content = text;
+        this.title = title;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = new Date();
+    }
 
     public Long getId() {
         return id;
@@ -63,6 +78,15 @@ public class Blog {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override

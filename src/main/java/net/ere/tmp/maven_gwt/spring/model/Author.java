@@ -1,5 +1,6 @@
 package net.ere.tmp.maven_gwt.spring.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class Author {
     private Date createdAt;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
-    private List<Blog> blogs;
+    private List<Blog> blogs = new ArrayList<>();
 
     public Author() {
     }
