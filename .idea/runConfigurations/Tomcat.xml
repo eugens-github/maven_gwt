@@ -1,8 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.50" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
     <option name="OPEN_IN_BROWSER" value="false" />
+    <option name="BROWSER_ID" value="16bf23d4-93e0-4ffc-bfd6-cb13575177b0" />
     <option name="COMMON_VM_ARGUMENTS" value="-Duser.language=en" />
-    <option name="UPDATING_POLICY" value="restart-server" />
+    <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
     <deployment>
       <artifact name="maven_gwt:war NO GWT">
         <settings>

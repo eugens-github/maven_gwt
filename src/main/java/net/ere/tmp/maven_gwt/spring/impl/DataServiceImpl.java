@@ -37,6 +37,6 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public List<Author> getAllAuthors() {
-        return entityManager.createQuery("select a from Author a", Author.class).getResultList();
+        return entityManager.createQuery("select a from Author a join fetch a.blogs", Author.class).getResultList();
     }
 }

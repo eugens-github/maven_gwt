@@ -1,10 +1,12 @@
 .gwt-Button {
 	font-size: large;
-	color: green;
+	color: darkblue;
+    margin: 10px;
+    padding: 5px;
 }
 
 .myLabel {
-	color: blue;
+	color: darkseagreen;
 	font-family: monospace;
 	font-size: 1.2em;
 	margin: 1.0em;

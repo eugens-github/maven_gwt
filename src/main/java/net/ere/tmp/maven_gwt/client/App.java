@@ -1,9 +1,12 @@
 package net.ere.tmp.maven_gwt.client;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
+import com.google.gwt.user.cellview.client.CellTable;
+import com.google.gwt.user.cellview.client.TextColumn;
 import net.ere.tmp.maven_gwt.shared.AppService;
 import net.ere.tmp.maven_gwt.shared.AppServiceAsync;
 
@@ -17,23 +20,28 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import net.ere.tmp.maven_gwt.shared.BlogItem;
 
 public class App implements EntryPoint {
 
     private Logger log = Logger.getLogger(App.class.getName());
     private AppServiceAsync appService = GWT.create(AppService.class);
 
+    private CellTable<BlogItem> table = new CellTable<>();
+
     @Override
     public void onModuleLoad() {
 
-        final Button button = new Button("Get-Time");
+        final Button button = new Button("Load data");
+        final Button initButton = new Button("Init data");
         final Label labelLocalTime = new Label();
         final Label labelServerTime = new Label();
         labelLocalTime.setStyleName("myLabel");
         labelServerTime.setStyleName("myLabel");
+        RootPanel.get().add(initButton);
         RootPanel.get().add(button);
-        RootPanel.get().add(labelLocalTime);
-        RootPanel.get().add(labelServerTime);
+        RootPanel.get("timeSpan1").add(labelLocalTime);
+        RootPanel.get("timeSpan2").add(labelServerTime);
 
         button.addClickHandler(new ClickHandler() {
 
@@ -50,6 +58,21 @@ public class App implements EntryPoint {
                     public void onSuccess(Date result) {
                         log.info("Response: " + result);
                         labelServerTime.setText("Servertime: " + format(result));
+
+
+                        appService.getAllBlogItem(new AsyncCallback<List<BlogItem>>() {
+                            @Override
+                            public void onFailure(Throwable caught) {
+                                log.warning("ERROR: " + caught.getMessage());
+                            }
+
+                            @Override
+                            public void onSuccess(List<BlogItem> result) {
+                                log.info("Load " + result.size() + " items");
+                                table.setRowCount(result.size(), true);
+                                table.setRowData(0, result);
+                            }
+                        });
                     }
 
                     @Override
@@ -57,11 +80,47 @@ public class App implements EntryPoint {
                         log.warning(caught.getMessage());
                     }
                 });
+
             }
         });
 
+        initButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                initData();
+            }
+        });
 
-        initData();
+        initTable();
+    }
+
+    private void initTable() {
+        TextColumn<BlogItem> authorColumn = new TextColumn<BlogItem>() {
+            @Override
+            public String getValue(BlogItem blogItem) {
+                return blogItem.getAuther();
+            }
+        };
+
+        TextColumn<BlogItem> titleColumn = new TextColumn<BlogItem>() {
+            @Override
+            public String getValue(BlogItem blogItem) {
+                return blogItem.getTitle();
+            }
+        };
+
+        TextColumn<BlogItem> contentColumn = new TextColumn<BlogItem>() {
+            @Override
+            public String getValue(BlogItem blogItem) {
+                return blogItem.getText();
+            }
+        };
+
+        table.addColumn(authorColumn, "Name");
+        table.addColumn(titleColumn, "Title");
+        table.addColumn(contentColumn, "Content");
+
+        RootPanel.get().add(table);
     }
 
     private void initData() {
