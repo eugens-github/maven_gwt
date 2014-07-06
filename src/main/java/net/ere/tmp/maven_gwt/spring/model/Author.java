@@ -1,9 +1,9 @@
 package net.ere.tmp.maven_gwt.spring.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.*;
 
 @Entity
 @Table

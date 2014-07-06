@@ -1,23 +1,19 @@
 package net.ere.tmp.maven_gwt.server;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Logger;
-
-import net.ere.tmp.maven_gwt.shared.AppService;
-
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import net.ere.tmp.maven_gwt.shared.AppService;
 import net.ere.tmp.maven_gwt.shared.BlogItem;
 import net.ere.tmp.maven_gwt.spring.DataService;
 import net.ere.tmp.maven_gwt.spring.TimeService;
 import net.ere.tmp.maven_gwt.spring.model.Author;
 import net.ere.tmp.maven_gwt.spring.model.Blog;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Logger;
 
 public class AppServiceImpl extends RemoteServiceServlet implements AppService {
 

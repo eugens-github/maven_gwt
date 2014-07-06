@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.*;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -52,8 +54,6 @@ public class AppConfig {
         dataSource.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
         dataSource.setUrl("jdbc:derby://localhost:1527/maven_gwt_db;create=true");
 
-        // dataSource.setUsername("admin");
-        // dataSource.setPassword("admin");
         dataSource.setUsername("app");
         dataSource.setPassword("app");
 

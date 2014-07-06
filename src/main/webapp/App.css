@@ -1,13 +1,13 @@
 .gwt-Button {
-	font-size: large;
-	color: darkblue;
+    font-size: large;
+    color: darkblue;
     margin: 10px;
     padding: 5px;
 }
 
 .myLabel {
-	color: darkseagreen;
-	font-family: monospace;
-	font-size: 1.2em;
-	margin: 1.0em;
+    color: darkseagreen;
+    font-family: monospace;
+    font-size: 1.2em;
+    margin: 1.0em;
 }

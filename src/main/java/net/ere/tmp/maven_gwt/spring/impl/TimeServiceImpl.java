@@ -1,7 +1,6 @@
 package net.ere.tmp.maven_gwt.spring.impl;
 
 import net.ere.tmp.maven_gwt.spring.TimeService;
-import org.springframework.stereotype.Service;
 
 import javax.inject.Named;
 import java.text.SimpleDateFormat;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
 
     <!-- Configure ContextLoaderListener to use AnnotationConfigWebApplicationContext
     instead of the default XmlWebApplicationContext -->
@@ -24,18 +24,18 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-	<servlet>
-		<servlet-name>appServlet</servlet-name>
-		<servlet-class>net.ere.tmp.maven_gwt.server.AppServiceImpl</servlet-class>
-	</servlet>
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>net.ere.tmp.maven_gwt.server.AppServiceImpl</servlet-class>
+    </servlet>
 
-	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/App/app_service</url-pattern>
-	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/App/app_service</url-pattern>
+    </servlet-mapping>
 
-	<welcome-file-list>
-		<welcome-file>App.html</welcome-file>
-	</welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>App.html</welcome-file>
+    </welcome-file-list>
 
 </web-app>

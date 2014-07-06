@@ -1,32 +1,38 @@
 package net.ere.tmp.maven_gwt.client;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.logging.Logger;
-
-import com.google.gwt.user.cellview.client.CellTable;
-import com.google.gwt.user.cellview.client.TextColumn;
-import net.ere.tmp.maven_gwt.shared.AppService;
-import net.ere.tmp.maven_gwt.shared.AppServiceAsync;
-
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat;
+import com.google.gwt.user.cellview.client.CellTable;
+import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import net.ere.tmp.maven_gwt.shared.AppService;
+import net.ere.tmp.maven_gwt.shared.AppServiceAsync;
 import net.ere.tmp.maven_gwt.shared.BlogItem;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+import java.util.logging.Logger;
 
 public class App implements EntryPoint {
 
+    String[] names = {"Alice", "Bob", "Charly", "Dora", "Emil", "Fjodor"};
+    String[][] title = {{"JPA", "JPA ist gut .."},
+            {"Spring", "Spring ist gut"},
+            {"EJB", "Ist gut ..."},
+            {"GWT", "Wie man GWT richtig nutzt"},
+            {"JSF", "Ist JSF schlecht?"},
+            {"DB", "Welche DB ist die beste?"}
+    };
     private Logger log = Logger.getLogger(App.class.getName());
     private AppServiceAsync appService = GWT.create(AppService.class);
-
     private CellTable<BlogItem> table = new CellTable<>();
 
     @Override
@@ -126,7 +132,7 @@ public class App implements EntryPoint {
     private void initData() {
         Random rd = new Random();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             int a = rd.nextInt(5);
             int b = rd.nextInt(5);
 
@@ -148,15 +154,5 @@ public class App implements EntryPoint {
     private String format(Date date) {
         return DateTimeFormat.getFormat(PredefinedFormat.TIME_MEDIUM).format(date);
     }
-
-    String[] names = {"Alice", "Bob", "Charly", "Dora", "Emil", "Fjodor"};
-
-    String[][] title = {{"JPA", "JPA ist gut .."},
-            {"Spring", "Spring ist gut"},
-            {"EJB", "Ist gut ..."},
-            {"GWT", "Wie man GWT richtig nutzt"},
-            {"JSF", "Ist JSF schlecht?"},
-            {"DB", "Welche DB ist die beste?"}
-    };
 
 }
