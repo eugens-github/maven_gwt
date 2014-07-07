@@ -4,6 +4,8 @@ gwt-unitCache
 
 *.class
 
+.idea/libraries/*
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
