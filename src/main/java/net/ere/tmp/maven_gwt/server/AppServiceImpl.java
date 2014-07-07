@@ -10,11 +10,19 @@ import net.ere.tmp.maven_gwt.spring.model.Blog;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
+// @WebServlet(name = "appServlet", urlPatterns = { "/App/app_service" })
 public class AppServiceImpl extends RemoteServiceServlet implements AppService {
 
     private static final long serialVersionUID = 1L;
@@ -76,5 +84,28 @@ public class AppServiceImpl extends RemoteServiceServlet implements AppService {
         }
 
         return list;
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        resp.setContentType("application/json");
+        PrintWriter out = resp.getWriter();
+        String simpleParam = getServletConfig().getInitParameter("simpleInitParam");
+        String param1 = req.getParameter("param1");
+
+        if (param1 != null && !param1.isEmpty()) {
+            out.println("Hello World '" + simpleParam + "' : " + param1);
+        } else {
+            out.println("{");
+            out.println("{\"id\":12934563,\"name\":\"Bill Smith\",\"email\":\"bill.smith@web.com\",\"phoneNumber\":\"32125551212\"}\",");
+            out.println("{\"id\":12934564,\"name\":\"Bill Smith 2\",\"email\":\"bill.smith2@web.com\",\"phoneNumber\":\"321255512142\"}\"");
+            out.println("{\"id\":12934564,\"name\":\"Bill Smith 2\",\"email\":\"bill.smith2@web.com\",\"phoneNumber\":\"321255512142\"}\"");
+            out.println("{\"id\":12934564,\"name\":\"Bill Smith 2\",\"email\":\"bill.smith2@web.com\",\"phoneNumber\":\"321255512142\"}\"");
+            out.println("{\"id\":12934564,\"name\":\"Bill Smith 2\",\"email\":\"bill.smith2@web.com\",\"phoneNumber\":\"321255512142\"}\"");
+            out.println("}");
+        }
+
+        out.close();
     }
 }

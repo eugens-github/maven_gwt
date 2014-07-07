@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 
-@Ignore
 public class AppServiceImplTest {
 
     AppServiceImpl appService;
@@ -17,11 +16,13 @@ public class AppServiceImplTest {
         appService = new AppServiceImpl();
     }
 
+    @Ignore
     @Test
     public void testGetTime() {
         assertNotNull(appService.getTime());
     }
 
+    @Ignore
     @Test
     public void testGetPropertyValue() {
         assertNotNull(appService.getPropertyValue("java.version"));

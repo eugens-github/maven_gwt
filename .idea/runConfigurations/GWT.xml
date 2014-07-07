@@ -3,7 +3,7 @@
     <module name="maven_gwt" />
     <option name="VM_PARAMETERS" value="-Xmx256m -Duser.language=en" />
     <option name="SHELL_PARAMETERS" value="-noserver -war c:\Users\Eugen\dev\IdeaProjects\maven_gwt\target\maven_gwt.war" />
-    <option name="RUN_PAGE" value="http://127.0.0.1:8080/App.html" />
+    <option name="RUN_PAGE" value="http://127.0.0.1:8080/maven_gwt/App.html" />
     <option name="GWT_MODULE" value="net.ere.tmp.maven_gwt.App" />
     <option name="BROWSER" value="16bf23d4-93e0-4ffc-bfd6-cb13575177b0" />
     <option name="UPDATE_RESOURCES_ON_FRAME_DEACTIVATION" value="true" />
