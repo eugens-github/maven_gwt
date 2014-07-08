@@ -25,6 +25,10 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class AppConfig {
 
+    enum DB {Derby, H2}
+
+    private final DB usedDB = DB.H2;
+
     @Bean
     public TimeService timeService() {
         return new TimeServiceImpl();
@@ -51,11 +55,20 @@ public class AppConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
-        dataSource.setUrl("jdbc:derby://localhost:1527/maven_gwt_db;create=true");
 
-        dataSource.setUsername("app");
-        dataSource.setPassword("app");
+        if (usedDB == DB.Derby) {
+            dataSource.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
+            dataSource.setUrl("jdbc:derby://localhost:1527/maven_gwt_db;create=true");
+
+            dataSource.setUsername("app");
+            dataSource.setPassword("app");
+        } else {
+            dataSource.setDriverClassName("org.h2.Driver");
+            dataSource.setUrl("jdbc:h2:~/db/h2/maven_gwt_db");
+
+            dataSource.setUsername("sa");
+            dataSource.setPassword("sa");
+        }
 
         return dataSource;
     }
@@ -76,9 +89,14 @@ public class AppConfig {
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.DerbyDialect");
         properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("hibernate.format_sql", "true");
+
+        if (usedDB == DB.Derby) {
+            properties.setProperty("hibernate.dialect", "org.hibernate.dialect.DerbyDialect");
+        } else {
+            properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+        }
 
         return properties;
     }

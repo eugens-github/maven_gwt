@@ -24,9 +24,9 @@ import java.util.logging.Logger;
 public class App implements EntryPoint {
 
     String[] names = {"Alice", "Bob", "Charly", "Dora", "Emil", "Fjodor"};
-    String[][] title = {{"JPA", "JPA ist gut .."},
-            {"Spring", "Spring ist gut"},
-            {"EJB", "Ist gut ..."},
+    String[][] title = {{"JPA €", "JPA € ist gut .."},
+            {"Spring", "Spring ist güt"},
+            {"EJB", "Ist gut öüä ..."},
             {"GWT", "Wie man GWT richtig nutzt"},
             {"JSF", "Ist JSF schlecht?"},
             {"DB", "Welche DB ist die beste?"}
@@ -44,8 +44,8 @@ public class App implements EntryPoint {
         final Label labelServerTime = new Label();
         labelLocalTime.setStyleName("myLabel");
         labelServerTime.setStyleName("myLabel");
-        RootPanel.get().add(initButton);
-        RootPanel.get().add(button);
+        RootPanel.get("gwt").add(initButton);
+        RootPanel.get("gwt").add(button);
         RootPanel.get("timeSpan1").add(labelLocalTime);
         RootPanel.get("timeSpan2").add(labelServerTime);
 
@@ -126,7 +126,7 @@ public class App implements EntryPoint {
         table.addColumn(titleColumn, "Title");
         table.addColumn(contentColumn, "Content");
 
-        RootPanel.get().add(table);
+        RootPanel.get("gwt").add(table);
     }
 
     private void initData() {
