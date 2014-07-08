@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+    <context-root>maven_gwt</context-root>
+    <!--http://docs.jboss.org/jbossweb/7.0.x/appdev/jbossweb.html-->
+    <!--<security-domain>mysecuritydomain</security-domain>-->
+</jboss-web>

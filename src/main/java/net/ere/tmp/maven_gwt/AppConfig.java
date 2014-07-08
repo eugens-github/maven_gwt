@@ -25,8 +25,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class AppConfig {
 
-    enum DB {Derby, H2}
-
     private final DB usedDB = DB.H2;
 
     @Bean
@@ -100,4 +98,6 @@ public class AppConfig {
 
         return properties;
     }
+
+    enum DB {Derby, H2}
 }
