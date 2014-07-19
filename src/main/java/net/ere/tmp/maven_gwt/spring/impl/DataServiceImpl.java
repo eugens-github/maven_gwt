@@ -11,7 +11,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-// @Named("dataService")
 @Service
 @Transactional
 public class DataServiceImpl implements DataService {
@@ -19,7 +18,6 @@ public class DataServiceImpl implements DataService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    // @Inject
     @Autowired
     private TimeService timeService;
 
