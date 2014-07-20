@@ -1,5 +1,7 @@
 package net.ere.tmp.maven_gwt;
 
+import net.ere.tmp.maven_gwt.spring.DataService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -22,6 +24,7 @@ public class JpaConfig {
     enum DB {Derby, H2}
 
     private DB usedDB = DB.H2;
+
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -65,10 +68,14 @@ public class JpaConfig {
         return transactionManager;
     }
 
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-        return new PersistenceExceptionTranslationPostProcessor();
-    }
+    /*  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+        Das ist nur notwendig wenn Beans die etwas mit Persistence zu tun haben, nicht mit @Repository annotiert sind
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+    */
+//    @Bean
+//    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+//        return new PersistenceExceptionTranslationPostProcessor();
+//    }
 
     private Properties additionalProperties() {
         Properties properties = new Properties();
