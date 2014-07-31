@@ -7,7 +7,7 @@
     <deployment>
       <artifact name="maven_gwt:war NO GWT">
         <settings>
-          <option name="CONTEXT_PATH" value="/" />
+          <option name="CONTEXT_PATH" value="/maven_gwt" />
         </settings>
       </artifact>
     </deployment>

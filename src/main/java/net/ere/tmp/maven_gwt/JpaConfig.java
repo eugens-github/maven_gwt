@@ -23,7 +23,7 @@ public class JpaConfig {
 
     enum DB {Derby, H2}
 
-    private DB usedDB = DB.H2;
+    private DB usedDB = DB.Derby;
 
 
     @Bean

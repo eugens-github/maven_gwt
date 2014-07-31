@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="maven_gwt:war exploded">
-    <output-path>$PROJECT_DIR$/target/maven_gwt-1.0.1-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/target/maven_gwt.war</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="maven_gwt/web/Web" />
       <element id="directory" name="WEB-INF">
@@ -20,20 +20,22 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.0.6.RELEASE" />
-          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.2.14.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.2.15.Final" />
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
           <element id="library" level="project" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.1.Final" />
           <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.2.Final" />
-          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.2.14.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.2.15.Final" />
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.4.GA" />
           <element id="library" level="project" name="Maven: org.apache.derby:derbyclient:10.10.2.0" />
-          <element id="library" level="project" name="Maven: com.h2database:h2:1.3.167" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.180" />
         </element>
       </element>
-      <element id="gwt-compiler-output" facet="maven_gwt/gwt/GWT" />
+      <element id="directory" name=".">
+        <element id="gwt-compiler-output" facet="maven_gwt/gwt/GWT" />
+      </element>
     </root>
   </artifact>
 </component>
