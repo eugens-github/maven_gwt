@@ -7,6 +7,7 @@
     <groupId>net.ere.tmp</groupId>
     <artifactId>maven_gwt</artifactId>
     <version>1.0.2-SNAPSHOT</version>
+    <name>my_maven_gwt</name>
 
     <packaging>war</packaging>
 
@@ -14,9 +15,11 @@
         <gwt.version>2.6.1</gwt.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <io.spring.platform.version>1.0.1.RELEASE</io.spring.platform.version>
-        <spring.version>4.0.6.RELEASE</spring.version>
+        <spring.version>4.1.0.RELEASE</spring.version>
 
-        <webappDirectory>${project.build.directory}/${project.artifactId}.${project.packaging}</webappDirectory>
+        <my_final_name>maven_gwt.war</my_final_name>
+        <war.warName>zzz_maven_gwt</war.warName>
+        <!--<webappDirectory>${project.build.directory}/${project.artifactId}.${project.packaging}</webappDirectory>-->
     </properties>
 
     <!--<dependencyManagement>
@@ -112,6 +115,8 @@
     </dependencies>
 
     <build>
+        <!-- set the ${project.build.finalName}. It is not possible to set this above in the <properties> block -->
+        <finalName>${my_final_name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -127,7 +132,16 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <webappDirectory>${webappDirectory}</webappDirectory>
+                    <archive>
+                        <manifestEntries>
+                            <Manifest-Version>1.0.0</Manifest-Version>
+                            <Organisation>trimplement GmbH</Organisation>
+                            <Artifact>${project.artifactId}-${project.version}</Artifact>
+                            <Build-OS>${os.name} - ${os.version} (${os.arch})</Build-OS>
+                            <Build-Time>${maven.build.timestamp}</Build-Time>
+                        </manifestEntries>
+                    </archive>
+                    <!--<webappDirectory>${webappDirectory}</webappDirectory>-->
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
@@ -144,7 +158,7 @@
                 </executions>
                 <configuration>
                     <runTarget>App.html</runTarget>
-                    <webappDirectory>${webappDirectory}</webappDirectory>
+                    <!--<webappDirectory>${webappDirectory}</webappDirectory>-->
                 </configuration>
             </plugin>
         </plugins>

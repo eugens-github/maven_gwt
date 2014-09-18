@@ -8,6 +8,9 @@
         <welcome-file>App.html</welcome-file>
     </welcome-file-list>
 
+    <display-name>maven_gwt</display-name>
+    <module-name>maven_gwt</module-name>
+
     <!-- Configure ContextLoaderListener to use AnnotationConfigWebApplicationContext
     instead of the default XmlWebApplicationContext -->
     <context-param>
